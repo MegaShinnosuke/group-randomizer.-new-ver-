@@ -43,7 +43,7 @@ textarea#result { resize:vertical; }
 </head>
 <body>
 <h1>グループ分けツール</h1>
-<p>チェックを入れた人だけでグループ分けできます（出力時に「ちゃん」が付きます）</p>
+<p>チェックを入れた人だけでグループ分けできます（出力時に「さん」が付きます）</p>
 
 <button onclick="openModal()">👤 ＋新規登録</button>
 <button onclick="openDeleteModal()">🗑 メンバー削除</button>
@@ -86,40 +86,8 @@ textarea#result { resize:vertical; }
 /* --- 追加: localStorage 保存・復元 --- */
 function loadMembers(){
   return JSON.parse(localStorage.getItem("members")) || [
-    { display:"Hei", output:"へいちゃん" },
-    { display:"sabaris", output:"さばちゃん" },
-    { display:"Lapis", output:"ラピちゃん" },
-    { display:"TAMA", output:"たまちゃん" },
-    { display:"しばじろう", output:"しばちゃん" },
-    { display:"カイ", output:"カイちゃん" },
-    { display:"しろ子", output:"しろちゃん" },
-    { display:"サクヤ", output:"わんわんサクちゃん" },
-    { display:"すい", output:"すいちゃん" },
-    { display:"たい", output:"たいちゃん" },
-    { display:"たかこっこ", output:"たかちゃん" },
-    { display:"ぬーえ", output:"ぬえちゃん" },
-    { display:"まみみ", output:"まみちゃん" },
-    { display:"まめしばぁぁぁ", output:"まめちゃん" },
-    { display:"み～こ", output:"み～ちゃん" },
-    { display:"めがむー", output:"めがちゃん" },
-    { display:"ももんが", output:"ももちゃん" },
-    { display:"りあ", output:"りあちゃん" },
-    { display:"アイリーン", output:"アイちゃん" },
-    { display:"コロボックル", output:"コロちゃん" },
-    { display:"ディ・マリア大佐", output:"ベジータちゃん" },
-    { display:"ミズキ", output:"ミズちゃん" },
-    { display:"メメノア", output:"メメちゃん" },
-    { display:"茶々", output:"ちゃちゃちゃん" },
-    { display:"Ren", output:"レンちゃん" },
-    { display:"シンノスケ", output:"しんちゃん" },
-    { display:"カルラ", output:"カルちゃん" },
-　　{ display:"みぃゆ", output:"みぃゆちゃん" },　
-　　{ display:"ツーさん", output:"ツーちゃん" },
-　　{ display:"クロウ", output:"クロちゃん" },
-　  { display:"キラ", output:"キラちゃん" },
-　  { display:"いっき", output:"いっちゃん" },
-    { display:"mochi", output:"もっちゃん" },
-    { display:"Echidna", output:"エキちゃん" }
+    { display:"A", output:"Aさん" },　　
+    { display:"B", output:"Bさん" },
   ];
 }
 function saveMembers(){
@@ -157,7 +125,7 @@ function addMember(){
   const o=document.getElementById("newOutput").value.trim();
   if(!d||!o)return;
   if(members.some(m=>m.display===d)){ alert("同名のメンバーは登録できません"); return; }
-  members.push({ display:d, output:o+"ちゃん" });
+  members.push({ display:d, output:o+"さん" });
   saveMembers(); // 保存
   renderGrid(); closeModal();
   document.getElementById("newDisplay").value=""; document.getElementById("newOutput").value="";
